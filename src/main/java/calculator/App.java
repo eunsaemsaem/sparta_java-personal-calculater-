@@ -15,5 +15,23 @@ public class App {
         /* scanner로 char을 입력받기 위해서는 형변환 필요 */
         char op = sc.next().charAt(0); // 0 : 문자의 위치
 
+        int result = 0;
+
+        /* 조건을 switch로 나눔 (intelliJ 자동 정렬 기능) */
+        switch (op) {
+            case '+' -> result = a + b;
+            case '-' -> result = a - b;
+            case '/' -> {
+                if (b == 0) {
+                    System.out.println("두 번째 숫자로 0이 입력될 수 없습니다.");
+                } else {
+                    result = a / b;
+                }
+            }
+            case '*' -> result = a * b;
+        }
+
+        System.out.println("결과: " + result);
+
     }
 }
