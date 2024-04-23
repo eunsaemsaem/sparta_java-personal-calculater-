@@ -1,12 +1,12 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double[] resultArr = new double[10];
-        int cnt = 0; //배열의 index 역할
+        ArrayList<Double> resultList = new ArrayList<Double>(); //배열 선언
 
         while (true) {
 
@@ -39,16 +39,13 @@ public class App {
 
             /* 결과 출력 */
             System.out.println("결과: " + result);
-            resultArr[cnt] = result;
-            cnt++;
+            resultList.add(result);
 
-            /* 배열 10칸 제한 */
-            if (cnt >= 10) {
-                for (int i = 0; i < 9; i++) {
-                    double moveResult = resultArr[i+1];
-                    resultArr[i] = moveResult; //arr[i+1]의 값을 arr[i]로 옮김
-                }
-                cnt--;
+            /* 첫번째 결과 삭제 */
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String remove = sc.next();
+            if (remove.equals("remove")) {
+                resultList.remove(0); //0번 결과 삭제
             }
 
             /* 반복 유무 확인 */
