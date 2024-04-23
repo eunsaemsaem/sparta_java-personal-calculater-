@@ -10,18 +10,19 @@ public class App {
 
         while (true) {
 
+            /* 입력받기 */
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int a = sc.nextInt();
             System.out.print("두 번째 숫자를 입력하세요: ");
             int b = sc.nextInt();
 
             System.out.print("사칙연산 기호를 입력하세요: ");
-            /* scanner로 char을 입력받기 위해서는 형변환 필요 */
+            //scanner로 char을 입력받기 위해서는 형변환 필요
             char op = sc.next().charAt(0); // 0 : 문자의 위치
 
-            double result = 0; // 정확한 값을 출력하기 위한 double?
+            double result = 0; // 정확한 값을 출력하기 위한 double
 
-            /* 연산자 조건을 switch로 나눔 (intelliJ 자동 정렬 기능) */
+            //연산자 조건을 switch로 나눔
             switch (op) {
                 case '+' -> result = a + b;
                 case '-' -> result = a - b;
@@ -33,11 +34,22 @@ public class App {
                     }
                 }
                 case '*' -> result = a * b;
+                case '%' -> result = a % b;
             }
 
+            /* 결과 출력 */
             System.out.println("결과: " + result);
             resultArr[cnt] = result;
             cnt++;
+
+            /* 배열 10칸 제한 */
+            if (cnt >= 10) {
+                for (int i = 0; i < 9; i++) {
+                    double moveResult = resultArr[i+1];
+                    resultArr[i] = moveResult; //arr[i+1]의 값을 arr[i]로 옮김
+                }
+                cnt--;
+            }
 
             /* 반복 유무 확인 */
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
