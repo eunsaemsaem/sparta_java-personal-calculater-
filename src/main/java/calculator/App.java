@@ -48,6 +48,15 @@ public class App {
                 resultList.remove(0); //0번 결과 삭제
             }
 
+            /* 결과 조회 */
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiry = sc.next();
+            if (inquiry.equals("inquiry")) {
+                for(double d:resultList) { //for-each문
+                    System.out.println(d);
+                }
+            }
+
             /* 반복 유무 확인 */
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String exit = sc.next();
