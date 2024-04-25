@@ -21,7 +21,13 @@ public class App {
             char op = sc.next().charAt(0); // 0 : 문자의 위치
 
             Calculator calculator = new Calculator();
-            double result = calculator.calculate(a, b, op);
+            double result = 0;
+            
+            try {
+                result = calculator.calculate(a, b, op);
+            } catch (CalculateException e) {
+                System.out.println(e.getMessage());
+            }
 
             /* 결과 출력 */
             System.out.println("결과: " + result);

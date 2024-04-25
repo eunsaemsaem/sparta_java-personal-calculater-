@@ -7,7 +7,7 @@ package calculator;
 import java.io.IOError;
 
 public class Calculator {
-    public double calculate (int a, int b, char op) {
+    public double calculate (int a, int b, char op) throws CalculateException {
         double result = 0; // 정확한 값을 출력하기 위한 double
 
         //연산자 조건을 switch로 나눔
@@ -15,16 +15,16 @@ public class Calculator {
             case '+' -> result = a + b;
             case '-' -> result = a - b;
             case '/' -> {
-                try {
+                if (a == 0) {
+                    throw new CalculateException("Division by zero");
+                }
+                else {
                     result = (double) a / b;
-                } catch (IOError e) { //catch문이 실행이 안된다?.... 결과값이 'Infinity'로 저장됨
-                    System.out.println("두 번째 숫자로 0이 입력될 수 없습니다.");
-                } finally {
-                    System.out.println("예외 처리 완료");
                 }
             }
             case '*' -> result = a * b;
             case '%' -> result = a % b;
+            default -> throw new CalculateException("Unknown operator");
         }
 
         return result;
