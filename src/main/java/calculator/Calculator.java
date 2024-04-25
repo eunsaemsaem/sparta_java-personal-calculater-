@@ -1,8 +1,12 @@
 package calculator;
 
+import java.util.ArrayList;
+
 public class Calculator {
+    ArrayList<Double> resultList = new ArrayList<>();
+
     public double calculate (int a, int b, char op) throws CalculateException {
-        double result = 0; // 정확한 값을 출력하기 위한 double
+        double result = 0;
 
         //연산자 조건을 switch로 나눔
         switch (op) {
@@ -20,7 +24,10 @@ public class Calculator {
             case '%' -> result = a % b;
             default -> throw new CalculateException("Unknown operator");
         }
-
+        resultList.add(result);
+//        for (double d: resultList) {
+//            System.out.println(d);
+//        }
         return result;
     }
 
