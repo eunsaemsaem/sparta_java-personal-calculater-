@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-    private ArrayList<Double> resultList = new ArrayList<>(); //외부에서 직접 접근하지 못하도록 수정
+    private ArrayList<Double> resultList = new ArrayList<>(); //외부에서 직접 접근하지 못하도록 수정(private)
 
     public double calculate(int a, int b, char op) throws CalculateException {
         double result = 0;
@@ -28,11 +28,12 @@ public class Calculator {
             case '%' -> result = a % b;
             default -> throw new CalculateException("알 수 없는 연산자입니다.");
         }
-        resultList.add(result); ///////App으로 옮기기!
+        // 결과
+        resultList.add(result);
         return result;
     }
 
-    /* Getter, Setter 메서드 */
+    /* 컬렉션의 Getter, Setter 메서드 */
     public ArrayList<Double> getResultList() {
         return resultList;
     }

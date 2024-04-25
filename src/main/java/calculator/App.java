@@ -21,6 +21,7 @@ public class App {
             //scanner로 char을 입력받기 위해서는 형변환 필요
             char op = sc.next().charAt(0); // 0 : 문자의 위치
 
+            //try-catch문 안에서 실행
             try {
                 double result = calculator.calculate(a, b, op);
 
@@ -49,6 +50,7 @@ public class App {
                 if (exit.equals("exit")) {
                     break;
                 }
+
             } catch (CalculateException e) {
                 System.out.println(e.getMessage());
             }
