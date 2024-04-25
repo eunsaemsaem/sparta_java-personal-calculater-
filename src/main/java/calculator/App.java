@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CalculateException {
         Scanner sc = new Scanner(System.in);
         ArrayList<Double> resultList = new ArrayList<Double>(); //배열 선언
 
@@ -22,12 +22,8 @@ public class App {
 
             Calculator calculator = new Calculator();
             double result = 0;
-            
-            try {
-                result = calculator.calculate(a, b, op);
-            } catch (CalculateException e) {
-                System.out.println(e.getMessage());
-            }
+            result = calculator.calculate(a, b, op);
+
 
             /* 결과 출력 */
             System.out.println("결과: " + result);
