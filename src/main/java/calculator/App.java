@@ -20,22 +20,8 @@ public class App {
             //scanner로 char을 입력받기 위해서는 형변환 필요
             char op = sc.next().charAt(0); // 0 : 문자의 위치
 
-            double result = 0; // 정확한 값을 출력하기 위한 double
-
-            //연산자 조건을 switch로 나눔
-            switch (op) {
-                case '+' -> result = a + b;
-                case '-' -> result = a - b;
-                case '/' -> {
-                    if (b == 0) {
-                        System.out.println("두 번째 숫자로 0이 입력될 수 없습니다.");
-                    } else {
-                        result = (double) a / (double) b;
-                    }
-                }
-                case '*' -> result = a * b;
-                case '%' -> result = a % b;
-            }
+            Calculator calculator = new Calculator();
+            double result = calculator.calculate(a, b, op);
 
             /* 결과 출력 */
             System.out.println("결과: " + result);
