@@ -16,7 +16,7 @@ public class Calculator {
             case '-' -> result = a - b;
             case '/' -> {
                 if (a == 0) {
-                    throw new CalculateException("Division by zero");
+                    throw new CalculateException("두번째 숫자는 0이 될 수 없습니다. "); // 출력이 안됨..
                 }
                 else {
                     result = (double) a / b;
