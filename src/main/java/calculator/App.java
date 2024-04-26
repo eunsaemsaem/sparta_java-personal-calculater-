@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -7,13 +8,13 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         /* Calculator 인스턴스 생성 */
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(new ArrayList<>());
 
         /* 반복문 시작 */
         while (true) {
 
             /* 입력받기 */
-            System.out.print("첫 번째 숫자를 입력하세요: ");
+            System.out.print("첫 번째 숫자를 입력하세요: "); /////숫자가 아닌걸 입력받았을 때 예외처리 하는 방법?
             int a = sc.nextInt();
             System.out.print("두 번째 숫자를 입력하세요: ");
             int b = sc.nextInt();
