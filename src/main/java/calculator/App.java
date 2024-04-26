@@ -29,11 +29,7 @@ public class App {
                 System.out.println("결과: " + result);
 
                 /* 첫번째 결과 삭제 */
-                System.out.print("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제): ");
-                String remove = sc.next();
-                if (remove.equals("remove")) {
-                    calculator.getResultList().remove(0); //0번 결과 삭제
-                }
+                calculator.removeResult();
 
                 /* 결과 조회 */
                 System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회): ");
