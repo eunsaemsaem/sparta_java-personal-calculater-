@@ -32,13 +32,7 @@ public class App {
                 calculator.removeResult();
 
                 /* 결과 조회 */
-                System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회): ");
-                String inquiry = sc.next();
-                if (inquiry.equals("inquiry")) {
-                    for (double d : calculator.getResultList()) { //for-each문
-                        System.out.println(d);
-                    }
-                }
+                calculator.inquiryResults();
 
                 /* 반복 유무 확인 */
                 System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
