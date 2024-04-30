@@ -1,9 +1,17 @@
 package calculator;
 
-import java.util.ArrayList;
+//9. ArithmeticCalculator 클래스의 연산 메서드에 책임(역할)이 많아 보입니다.
+//   사칙연산 각각의 기능을 담당하는 AddOperator, SubtractOperator, MultiplyOperator, DivideOperator 클래스를 만들어 연산 메서드의 책임을 분리 해봅니다. (SRP)
+//        - Calculator 클래스에 사칙연산 클래스들을 어떻게 활용할 수 있을지 고민 해봅니다. (포함 관계)
+//        - 활용 방법을 찾아 적용했을 때 사칙연산 클래스들을 초기화 해야하는데 이때, 반드시 생성자를 활용해 봅니다.
+//        - 마찬가지로 ArithmeticCalculator 클래스의 연산 메서드를 수정 하더라도 이전과 똑같이 동작해야합니다.
+
+
+
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) throws CalculateException {
         Scanner sc = new Scanner(System.in);
 
@@ -95,7 +103,11 @@ public class App {
                     break;
 
                 default:
-                    System.out.println("잘못된 입력입니다.");
+                    System.out.println("잘못된 입력입니다. 계속하려면 아무 키를, 그만하려면 exit를 입력해주세요");
+                    String d = sc.next();
+                    if (d.equals("exit")) {
+                        return;
+                    }
             }//switch 끝
             sc.nextLine();
 

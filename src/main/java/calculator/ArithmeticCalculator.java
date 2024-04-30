@@ -1,5 +1,10 @@
 package calculator;
 
+import calculator.operator.AddOperator;
+import calculator.operator.DivideOperator;
+import calculator.operator.MultiplyOperator;
+import calculator.operator.SubtractOperator;
+
 import java.util.ArrayList;
 
 public class ArithmeticCalculator extends Calculator {
@@ -10,6 +15,12 @@ public class ArithmeticCalculator extends Calculator {
     /* Constructor */
     public ArithmeticCalculator() {}
 
+    /* Operator 선언 */
+    AddOperator addOperator = new AddOperator();
+    SubtractOperator subtractOperator = new SubtractOperator();
+    MultiplyOperator multiplyOperator = new MultiplyOperator();
+    DivideOperator divideOperator = new DivideOperator();
+
     /* 연산 메서드 */
     @Override
     public double arithmeticCalculate(int num1, int num2, char op) throws CalculateException {
@@ -19,16 +30,16 @@ public class ArithmeticCalculator extends Calculator {
 
         // 연산자 조건을 switch로 나눔
         switch (op) {
-            case '+' -> result = num1 + num2;
-            case '-' -> result = num1 - num2;
+            case '+' -> result = addOperator.operate(num1, num2);
+            case '-' -> result = subtractOperator.operate(num1, num2);
             case '/' -> {
                 if (num2 == 0) {
                     throw new CalculateException("두번째 숫자는 0이 될 수 없습니다.");
                 } else {
-                    result = (double) num1 / num2;
+                    result = divideOperator.operate(num1, num2);
                 }
             }
-            case '*' -> result = num1 * num2;
+            case '*' -> multiplyOperator.operate(num1, num2);
             case '%' -> result = num1 % num2;
             default -> throw new CalculateException("알 수 없는 연산자입니다.");
         }
