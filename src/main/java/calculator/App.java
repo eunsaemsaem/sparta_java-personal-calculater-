@@ -1,6 +1,7 @@
 package calculator;
 
 
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -24,10 +25,16 @@ public class App {
             switch (input) {
                 //원의 넓이일 경우
                 case "y":
+                    double resultCir = 0;
                     /* 사용자에게 입력받기 */
-                    System.out.print("반지름을 입력하세요: ");
-                    int r = sc.nextInt();
-                    double resultCir = circleCalculator.circleCalculate(r);
+                    try{
+                        System.out.print("반지름을 입력하세요: ");
+                        int r = sc.nextInt();
+                        resultCir = circleCalculator.circleCalculate(r);
+                    } catch (CalculateException e) {
+                        throw new CalculateException("정수를 입력하세요.");///// 어디서 던져야 하지 ??
+//                        System.out.println(e.getMessage());
+                    }
 
                     /* 결과 출력 */
                     System.out.println("결과: " + resultCir);
@@ -77,7 +84,7 @@ public class App {
                         }
 
                     } catch (CalculateException e) {
-                        System.out.println(e.getMessage());
+                        System.out.println("error: " + e.getMessage());
                     }
                     break;
 
@@ -94,4 +101,6 @@ public class App {
         } while (!Objects.equals(sc.next(), "exit"));
 
     }
+
+
 }
