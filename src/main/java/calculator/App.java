@@ -1,7 +1,7 @@
 package calculator;
 
 
-
+import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
@@ -19,10 +19,12 @@ public class App {
         do {
             /* 사칙연산 or 원의 넓이 선택 */
             System.out.print("원의 넓이를 구하시겠습니까? ('y'입력 시 원의 넓이 계산, 'n'입력 시 사칙연산): ");
-            String input = sc.nextLine(); //어떤 연산을 할 지 선택하는 변수
+            String input = sc.next(); //어떤 연산을 할 지 선택하는 변수
 
             switch (input) {
-                case "y": //원의 넓이일 경우
+                //원의 넓이일 경우
+                case "y":
+                    /* 사용자에게 입력받기 */
                     System.out.print("반지름을 입력하세요: ");
                     int r = sc.nextInt();
                     double resultCir = circleCalculator.circleCalculate(r);
@@ -32,21 +34,19 @@ public class App {
 
                     /* 첫번째 결과 삭제 */
                     System.out.print("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제): ");
-                    String removeC = sc.next();
-                    if (removeC.equals("remove")) {
+                    if (Objects.equals(sc.next(), "remove")) {
                         circleCalculator.removeResult();
                     }
 
                     /* 전체 결과 조회 */
                     System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회): ");
-                    String inquiryC = sc.next();
-                    if (inquiryC.equals("inquiry")) {
+                    if (Objects.equals(sc.next(), "inquiry")) {
                         circleCalculator.inquiryResults();
                     }
                     break;
 
-                case "n": //사칙연산일 경우
-
+                //사칙연산일 경우
+                case "n":
                     /* 사용자에게 입력받기 */
                     System.out.print("첫 번째 숫자를 입력하세요: ");
                     int a = sc.nextInt();
@@ -66,15 +66,13 @@ public class App {
 
                         /* 첫번째 결과 삭제 */
                         System.out.print("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제): ");
-                        String remove = sc.next(); //App 클래스에 Scanner가 있기때문에 여기서 실행
-                        if (remove.equals("remove")) {
+                        if (Objects.equals(sc.next(), "remove")) {
                             arithmeticCalculator.removeResult();
                         }
 
                         /* 전체 결과 조회 */
                         System.out.print("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회): ");
-                        String inquiry = sc.next();
-                        if (inquiry.equals("inquiry")) {
+                        if (Objects.equals(sc.next(), "inquiry")) {
                             arithmeticCalculator.inquiryResults();
                         }
 
@@ -85,18 +83,15 @@ public class App {
 
                 default:
                     System.out.println("잘못된 입력입니다. 계속하려면 아무 키를, 그만하려면 exit를 입력해주세요");
-                    String d = sc.next();
-                    if (d.equals("exit")) {
+                    if (Objects.equals(sc.next(), "exit")) {
                         return;
                     }
             }//switch 끝
 
             /* 반복 유무 확인 */
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
-            exit = sc.next();
-            sc.nextLine();
 
-        } while (!exit.equals("exit"));
+        } while (!Objects.equals(sc.next(), "exit"));
 
     }
 }
