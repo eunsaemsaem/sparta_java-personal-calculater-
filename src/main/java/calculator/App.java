@@ -15,7 +15,8 @@ public class App {
 
 
         /* 반복문 시작 */
-        while (true) {
+        String exit;
+        do {
             /* 사칙연산 or 원의 넓이 선택 */
             System.out.print("원의 넓이를 구하시겠습니까? ('y'입력 시 원의 넓이 계산, 'n'입력 시 사칙연산): ");
             String input = sc.nextLine(); //어떤 연산을 할 지 선택하는 변수
@@ -42,13 +43,6 @@ public class App {
                     if (inquiryC.equals("inquiry")) {
                         circleCalculator.inquiryResults();
                     }
-
-                    /* 반복 유무 확인 */
-//                    System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
-//                    String exitC = sc.next();
-//                    if (exitC.equals("exit")) {
-//                        return;
-//                    }
                     break;
 
                 case "n": //사칙연산일 경우
@@ -84,13 +78,6 @@ public class App {
                             arithmeticCalculator.inquiryResults();
                         }
 
-                        /* 반복 유무 확인 */
-//                        System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
-//                        String exit = sc.next();
-//                        if (exit.equals("exit")) {
-//                            return;
-//                        }
-
                     } catch (CalculateException e) {
                         System.out.println(e.getMessage());
                     }
@@ -103,10 +90,13 @@ public class App {
                         return;
                     }
             }//switch 끝
-//            sc.nextLine();
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
 
-        }//while 끝
+            /* 반복 유무 확인 */
+            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
+            exit = sc.next();
+            sc.nextLine();
+
+        } while (!exit.equals("exit"));
 
     }
 }
