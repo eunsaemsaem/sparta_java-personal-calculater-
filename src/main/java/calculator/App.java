@@ -1,7 +1,6 @@
 package calculator;
 
 
-import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
 

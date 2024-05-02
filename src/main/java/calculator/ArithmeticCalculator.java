@@ -63,9 +63,4 @@ public class ArithmeticCalculator extends Calculator {
         ArithmeticCalculator.resultList = resultList;
     }
 
-    ////
-    @Override
-    public double circleCalculate(int r) throws CalculateException {
-        return 0;
-    }
 }

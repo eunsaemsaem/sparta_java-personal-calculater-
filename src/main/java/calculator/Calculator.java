@@ -20,8 +20,13 @@ public abstract class Calculator {
     }
 
     /* 연산 메서드 */
-    public abstract double arithmeticCalculate(int num1, int num2, char op) throws CalculateException;
-    public abstract double circleCalculate(int r) throws CalculateException;
+    public double arithmeticCalculate(int num1, int num2, char op) throws CalculateException {
+        return 0;
+    }
+
+    public double circleCalculate(int r) throws CalculateException {
+        return 0;
+    }
 
     /* 첫번째 결과 삭제 */
     public abstract void removeResult();
