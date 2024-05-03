@@ -2,6 +2,7 @@ package calculator;
 
 import java.util.ArrayList;
 
+//원의 넓이 계산을 위한 클래스
 public class CircleCalculator extends Calculator {
 
     /* 컬렉션 선언 */
@@ -15,10 +16,11 @@ public class CircleCalculator extends Calculator {
     @Override
     public double circleCalculate(int r) throws CalculateException {
 
-        // 결과값 및 파이 변수
+        // 결과값 및 파이 변수 선언
         double result = 0;
         final double pi = 3.14159;
 
+        // 계산
         result = pi * r * r;
 
         //결과
@@ -41,14 +43,5 @@ public class CircleCalculator extends Calculator {
         }
 
     }
-
-
-    ////
-    @Override
-    public double arithmeticCalculate(int num1, int num2, char op) throws CalculateException {
-        return 0;
-    }
-
-
 
 }

@@ -1,9 +1,9 @@
 package calculator;
 
-
 import java.util.Objects;
 import java.util.Scanner;
 
+//전체 실행 클래스
 public class App {
 
     public static void main(String[] args) throws CalculateException {
@@ -15,9 +15,6 @@ public class App {
         CircleCalculator circleCalculator = new CircleCalculator();
         // 정수 입력 예외처리
         InputCheck inputCheck = new InputCheck();
-
-        // 계산기 종료 여부를 받기 위한 변수
-        String exit;
 
 
         /* 반복문 시작 */
@@ -59,21 +56,12 @@ public class App {
 
                 //사칙연산일 경우
                 case "n":
-                    int a = 0, b = 0;
-                    /* 사용자에게 입력받기 */
-//                    try {
-//                        System.out.print("첫번째 숫자를 입력하세요: ");
-//                        a = sc.nextInt();
-//                        System.out.print("두번째 숫자를 입력하세요: ");
-//                        b = sc.nextInt();
-//                    } catch (Exception e) {
-//                        System.out.println("here");
-//                        throw new CalculateException("올바른 정수를 입력하세요"); ////실행되지 않고 오류 발생 -> 예외 발생 시 프로그램 종료되었던것 !!!
-//                    }
+                    int a = 0, b = 0; // 사칙연산을 위해 입력받을 정수
 
                     try {
-                        a = inputCheck.getNum();
-                        b = inputCheck.getNum();
+                        /* 사용자에게 입력받기 */
+                        a = inputCheck.getNum(); //첫번째 숫자
+                        b = inputCheck.getNum(); //두번째 숫자
 
                         System.out.print("사칙연산 기호를 입력하세요: ");
                         //scanner로 char을 입력받기 위해서는 형변환 필요
@@ -101,10 +89,9 @@ public class App {
                         System.out.println(e.getMessage());
                         break; //올바른 정수 입력이 아닌 경우 다시 계산할지 질문하도록 함
                     }
-
                     break;
 
-                default:
+                default: // 'y' 'n' 입력이 아닐 경우
                     System.out.println("잘못된 입력입니다. 계속하려면 아무 키를, 그만하려면 exit를 입력해주세요");
                     if (Objects.equals(sc.next(), "exit")) {
                         return;
@@ -114,22 +101,8 @@ public class App {
             /* 반복 유무 확인 */
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료): ");
 
-        } while (!Objects.equals(sc.next(), "exit"));
-
+        } while (!Objects.equals(sc.next(), "exit")); // 'exit'가 입력되지 않은 경우 반복문 실행
 
     }
-
-//    // 정수를 받는 메서드 - 예외처리  --> 시스템 input에 대한 클래스 생성 필요
-//    public static int getNum() throws CalculateException {
-//        try {
-//            Scanner sc = new Scanner(System.in);
-//            System.out.print("숫자를 입력하세요(반지름): ");
-//            int r = sc.nextInt();
-//            return r;
-//        } catch (InputMismatchException e) {
-//            throw new CalculateException("올바른 정수를 입력하세요");
-//        }
-//    }
-
 
 }

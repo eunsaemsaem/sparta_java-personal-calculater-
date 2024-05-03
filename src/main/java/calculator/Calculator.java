@@ -1,5 +1,6 @@
 package calculator;
 
+//계산을 위한 클래스
 public abstract class Calculator {
 
     /* 변수 선언 */
@@ -20,10 +21,11 @@ public abstract class Calculator {
     }
 
     /* 연산 메서드 */
+    // 사칙연산
     public double arithmeticCalculate(int num1, int num2, char op) throws CalculateException {
         return 0;
     }
-
+    // 원의 넓이
     public double circleCalculate(int r) throws CalculateException {
         return 0;
     }
